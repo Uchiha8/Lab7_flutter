@@ -1,16 +1,9 @@
-# lab_7
+# Lab 7
 
-A new Flutter project.
+### You may use the project provided in this repo, or you may use an empty project.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Tasks
+### 1. Design a ListView in which you have image of a user, First and Last Names as Title, email as subtitle of Listtile;
+### 2. Create a Model that handles JSON data as shown in your Lab presentation file.
+### 3. Make sure the Model you have created is connected to your project and you are using this to handle JSON from: https://randomuser.me/documentation 
+### 4. You are not required to create a Model which contains all the items in the JSON, it is sufficient to handle several only such as gender, name, picture and email.
