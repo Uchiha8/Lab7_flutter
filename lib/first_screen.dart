@@ -29,9 +29,9 @@ class _FirstScreenState extends State<FirstScreen> {
           itemCount: users.length,
           itemBuilder: (context, index){
             final user = users[index];
-            final email = user['email'];
+            final first_name = user['name']['first'];
             return ListTile(
-              title: Text(email),
+              title: Text(first_name),
             );
           }),
       floatingActionButton: FloatingActionButton(
