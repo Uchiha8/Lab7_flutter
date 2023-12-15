@@ -16,7 +16,7 @@ class _FirstScreenState extends State<FirstScreen> {
   get url_ => 'https://randomuser.me/api/?results=20';
 
   //save the users from url to users list
-  List<dynamic> users = [];
+  List<UserModel> users = [];
 
   @override
   Widget build(BuildContext context) {
@@ -25,19 +25,18 @@ class _FirstScreenState extends State<FirstScreen> {
         title: const Text('List of Users'),
       ),
       body: ListView.builder(
-          itemCount: users.length,
-          itemBuilder: (context, index) {
-            final user = users[index];
-            final first_name = user['name']['first'];
-            final last_name = user['name']['last'];
-            final email = user['email'];
-            final picture = user['picture']['medium'];
-            return UserModel(
-                firstName: first_name,
-                lastName: last_name,
-                email: email,
-                pictureURL: picture);
-          }),
+        itemCount: users.length,
+        itemBuilder: (context, index) {
+          final user = users[index];
+          return ListTile(
+            leading: CircleAvatar(
+              backgroundImage: NetworkImage(user.pictureURL),
+            ),
+            title: Text('${user.firstName} ${user.lastName}'),
+            subtitle: Text(user.email),
+          );
+        },
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: fetch,
       ),
