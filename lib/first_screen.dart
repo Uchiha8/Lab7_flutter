@@ -55,23 +55,6 @@ class _FirstScreenState extends State<FirstScreen> {
       print(body);
       //decode json and save to jsonData
       final json_data = jsonDecode(body);
-
-      //TODO: once you are trying to set up Model as List<Users> instead of List<dynamic>
-      //you should consider the steps performed in the lecture, where we:
-      /*
-      final results = json_data['results'] as List<dynamic>;
-      final converted = resutls.map((user) {
-        return User(
-          email: user['email'],
-          gender: gender['gender'],
-          //and etc.. fulfill all the requred data members prepared in your Model
-          //Note that for some such as name and picture you will need slightly different approach
-          //as they can also be regarded as classes
-        );
-
-      }).toList();
-       */
-
       setState(() {
         users = json_data['results'];
       });
