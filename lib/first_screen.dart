@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-
+import 'package:lab_7/users_model.dart';
 
 class FirstScreen extends StatefulWidget {
   const FirstScreen({super.key});
@@ -12,7 +12,6 @@ class FirstScreen extends StatefulWidget {
 }
 
 class _FirstScreenState extends State<FirstScreen> {
-
   //place the url
   get url_ => 'https://randomuser.me/api/?results=20';
 
@@ -23,21 +22,26 @@ class _FirstScreenState extends State<FirstScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('List of something'),
+        title: const Text('List of Users'),
       ),
       body: ListView.builder(
           itemCount: users.length,
-          itemBuilder: (context, index){
+          itemBuilder: (context, index) {
             final user = users[index];
             final first_name = user['name']['first'];
-            return ListTile(
-              title: Text(first_name),
-            );
+            final last_name = user['name']['last'];
+            final email = user['email'];
+            final picture = user['picture']['medium'];
+            return UserModel(
+                firstName: first_name,
+                lastName: last_name,
+                email: email,
+                pictureURL: picture);
           }),
       floatingActionButton: FloatingActionButton(
         onPressed: fetch,
-        ),
-      );
+      ),
+    );
   }
 
   void fetch() async {
@@ -47,7 +51,7 @@ class _FirstScreenState extends State<FirstScreen> {
     String body = '';
 
     //if successfull
-    if(response.statusCode == 200){
+    if (response.statusCode == 200) {
       body = response.body;
       print(body);
       //decode json and save to jsonData
@@ -72,7 +76,6 @@ class _FirstScreenState extends State<FirstScreen> {
       setState(() {
         users = json_data['results'];
       });
-
     }
   }
 }
