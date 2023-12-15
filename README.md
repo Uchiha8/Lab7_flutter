@@ -36,5 +36,3 @@ To run the project, follow these steps:
 1. Make sure you have Flutter installed on your system.
 2. Navigate to the project directory in the terminal.
 3. Run the command: `flutter run`
-
-Feel free to explore the code to gain a deeper understanding of the implementation. You can customize the project based on your preferences or extend it with additional features.
